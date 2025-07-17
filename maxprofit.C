@@ -11,5 +11,12 @@
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
 int maxProfit(int* prices, int pricesSize) {
+    int min = __INT_MAX__;
+    int max = 0;
     
+    for(int i = 0; i < pricesSize; i++){
+        min = std::min(min, prices[i]);
+        max = std::max(max, prices[i] - min);
+    }
+    return max;
 }
